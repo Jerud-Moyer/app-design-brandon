@@ -1,14 +1,96 @@
+:root {
+  --matte-black: 161925;
+  --persian-red: #bb4430;
+  --moonstone: #0fa3b1;
+  --platinum: #eae6e5;
+  --columbia-blue: #a7c6da;
+}
+
+@font-face {
+  font-family: 'Seagram';
+  src: url('/fonts/Seagram.ttf');
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+@keyframes burst {
+  0% {visibility: visible;}
+  90% {opacity: 1;}
+  to {transform: scale(20); opacity: 0; filter: brightness(200%)}
+}
+
+html,
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.title-wrap {
+  margin-top: 150px;
+  position: relative;
+
+  &:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+    border-radius: 50%;
+    box-shadow: 0 0 40px var(--columbia-blue);
+    position: absolute;
+    visibility: hidden;
+    animation: burst  2s ease;
+  }
+}
+
+h1 {
+  text-align: center;
+  font-size: 52px;
+  font-family: 'Seagram';
+  color: var(--persian-red);
+  letter-spacing: 2.3px;
+  text-shadow: 1px 1px 2px var(--columbia-blue);
+
+  &.main-title {
+ 
+    animation: fadeIn 1.5s ease;
+  }
+  
+  &.selected-quest {
+    font-size: 24px;
+  }
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 15px;
+  background: transparent;
+  border: solid var(--moonstone) 2px;
+  border-radius: 5px;
+  color: var(--moonstone);
+}
+
 .main {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #000;
 }
 
 .fake-phone {
+  padding: 20px 10px;
   height: 553px;
   width: 268px;
   border: solid #fff 1px;
   border-radius: 20px;
+  background: var(--matte-black);
+  margin: 50px;
+  overflow: hidden;
 }
