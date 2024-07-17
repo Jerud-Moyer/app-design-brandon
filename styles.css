@@ -4,6 +4,7 @@
   --moonstone: #0fa3b1;
   --platinum: #eae6e5;
   --columbia-blue: #a7c6da;
+  --polynesian-blue: #004385;
 }
 
 @font-face {
@@ -18,8 +19,8 @@
 
 @keyframes burst {
   0% {visibility: visible;}
-  90% {opacity: 1;}
-  to {transform: scale(20); opacity: 0; filter: brightness(200%)}
+  80% {opacity: 1;transform: scale(20);}
+  to { opacity: 0; filter: brightness(200%)}
 }
 
 html,
@@ -37,11 +38,12 @@ body {
     content: '';
     width: 10px;
     height: 10px;
+    position: absolute;
     top: calc(50% - 5px);
     left: calc(50% - 5px);
     border-radius: 50%;
+    background: radial-gradient(circle at center, var(--columbia-blue) 0, var(--moonstone) 100%, var(--polynesian-blue));
     box-shadow: 0 0 40px var(--columbia-blue);
-    position: absolute;
     visibility: hidden;
     animation: burst  2s ease;
   }
@@ -56,8 +58,9 @@ h1 {
   text-shadow: 1px 1px 2px var(--columbia-blue);
 
   &.main-title {
- 
-    animation: fadeIn 1.5s ease;
+    z-index: 10;
+    opacity: 1;
+    animation: fadeIn 2s ease;
   }
   
   &.selected-quest {
