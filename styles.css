@@ -1,15 +1,22 @@
 :root {
-  --matte-black: 161925;
+  --matte-black: #161925;
   --persian-red: #bb4430;
+  --imperial-red: #ED2939;
   --moonstone: #0fa3b1;
   --platinum: #eae6e5;
   --columbia-blue: #a7c6da;
   --polynesian-blue: #004385;
+
 }
 
 @font-face {
   font-family: 'Seagram';
   src: url('/fonts/Seagram.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf');
 }
 
 @keyframes fadeIn {
@@ -28,6 +35,9 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat';
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
 }
 
 .title-wrap {
@@ -42,7 +52,7 @@ body {
     top: calc(50% - 5px);
     left: calc(50% - 5px);
     border-radius: 50%;
-    background: radial-gradient(circle at center, var(--columbia-blue) 0, var(--moonstone) 100%, var(--polynesian-blue));
+    background: radial-gradient(circle at center, var(--columbia-blue) 20%, var(--moonstone) 75%, var(--polynesian-blue) 5%);
     box-shadow: 0 0 40px var(--columbia-blue);
     visibility: hidden;
     animation: burst  2s ease;
@@ -52,12 +62,12 @@ body {
 h1 {
   text-align: center;
   font-size: 52px;
-  font-family: 'Seagram';
-  color: var(--persian-red);
+  color: var(--imperial-red);
   letter-spacing: 2.3px;
-  text-shadow: 1px 1px 2px var(--columbia-blue);
-
+  
   &.main-title {
+    font-family: 'Seagram';
+    text-shadow: 1px 1px 2px var(--columbia-blue);
     z-index: 10;
     opacity: 1;
     animation: fadeIn 2s ease;
@@ -72,7 +82,7 @@ button {
   display: block;
   margin: 20px auto;
   padding: 10px 15px;
-  background: transparent;
+  background: var(--matte-black);
   border: solid var(--moonstone) 2px;
   border-radius: 5px;
   color: var(--moonstone);
@@ -96,4 +106,43 @@ button {
   background: var(--matte-black);
   margin: 50px;
   overflow: hidden;
+}
+
+.controls {
+  background-image: url('images/castle-door.jpg');
+  background-position: center;
+  height: 200px;
+}
+
+.lists-outer {
+  margin-top: 10px;
+  overflow: scroll;
+}
+
+.list-box {
+  border-width: 4px 0;
+  border-style: solid;
+  border-image: 
+    radial-gradient(
+      circle at center, 
+      var(--imperial-red), 
+      rgba(0, 0, 0, 0)
+    ) 1 8%;
+  font-family: 'Montserrat';
+  position: relative;
+  margin-bottom: 50px;
+
+    h3 {
+      position: absolute;
+      top: -35px;
+      left: 20px;
+      color: var(--moonstone);
+      max-width: fit-content;
+      background: var(--matte-black);
+    }
+
+    li {
+      color: var(--platinum);
+      list-style: none;
+    }
 }
