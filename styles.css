@@ -75,6 +75,7 @@ h1 {
   
   &.selected-quest {
     font-size: 24px;
+    text-shadow: 1px 1px 2px var(--platinum);
   }
 }
 
@@ -83,6 +84,7 @@ button {
   margin: 20px auto;
   padding: 10px 15px;
   background: var(--matte-black);
+  box-shadow: 0px 0px 10px 1px var(--platinum);
   border: solid var(--moonstone) 2px;
   border-radius: 5px;
   color: var(--moonstone);
@@ -112,11 +114,17 @@ button {
   background-image: url('images/castle-door.jpg');
   background-position: center;
   height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .lists-outer {
   margin-top: 10px;
-  overflow: scroll;
+  padding-top: 30px;
+  overflow: hidden scroll;
+  scrollbar-width: none;
+  height:calc(100% - 200px);
 }
 
 .list-box {
@@ -131,6 +139,14 @@ button {
   font-family: 'Montserrat';
   position: relative;
   margin-bottom: 50px;
+  height: 0;
+  transition: all .5s ease;
+
+    &.open {
+      min-height: 50px;
+      max-height: fit-content;
+    }
+
 
     h3 {
       position: absolute;
@@ -139,6 +155,14 @@ button {
       color: var(--moonstone);
       max-width: fit-content;
       background: var(--matte-black);
+    }
+
+    .drop-list {
+      display: none;
+
+      &.open {
+        display: block;
+      }
     }
 
     li {
